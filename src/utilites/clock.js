@@ -8,10 +8,12 @@ export const startClock = (context, tempo, plusNote) => {
 
   clock.on('position', function (position) {
     var microPosition = position % 96; // В такте 96 шестнадцатых нот
+    // console.log(microPosition);
 
     if (microPosition % 24 === 0) {
-      // console.log('Beat:', position / 96); // Выводим номер текущей четвертной ноты
+      console.log('Beat:', position / 96); // Выводим номер текущей четвертной ноты
       plusNote('Beat');
+      // clock.stop();
     }
 
     if (microPosition % 12 === 0) {

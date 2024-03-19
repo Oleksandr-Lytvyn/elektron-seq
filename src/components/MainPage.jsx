@@ -32,9 +32,9 @@ export const MainPage = () => {
     setSeq(newStuff);
   };
 
-  useEffect(() => {
-    console.log(value);
-  }, [value]);
+  //   useEffect(() => {
+  //     console.log(value);
+  //   }, [value]);
 
   return (
     <>
