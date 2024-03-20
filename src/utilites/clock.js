@@ -7,12 +7,20 @@ export const startClock = (context, tempo, plusNote) => {
   clock.start();
 
   clock.on('position', function (position) {
-    console.log(position);
+    if (position % 24 === 0) {
+      plusNote('Beat');
+    }
+    if (position % 12 === 0) {
+      plusNote('8th');
+    }
+    if (position % 6 === 0) {
+      plusNote('16-th');
+    }
   });
 
-  // setTimeout(function () {
-  //   clock.setTempo(tempo);
-  // }, 10000);
+  setTimeout(function () {
+    clock.setTempo(tempo);
+  }, 10000);
 };
 
 export const stopClock = () => {
