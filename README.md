@@ -1,1 +1,1 @@
-![alt text](https://raw.githubusercontent.com/Oleksandr-Lytvyn/elektron-seq/7acb687a98775c402e523fc6a54ecc3e71bce925/imgReadme.png)
+![Image alt](https://github.com/Oleksandr-Lytvyn/elektron-seq/raw/main/./src/images/readmeImg.png)
