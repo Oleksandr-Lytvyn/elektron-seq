@@ -9,7 +9,7 @@ import { LengthSelector } from './LengthSelector';
 export const MainPage = () => {
   const [audioContext, setAudioContext] = useState(null);
 
-  const { value, plusNote, resetNotes, setSeq } = useContext(MyContext);
+  const { value, plusNote, resetNotes, setSeq, seq } = useContext(MyContext);
 
   const items = Array.from({ length: 16 }, (v, i) => i);
 
@@ -25,16 +25,19 @@ export const MainPage = () => {
     // Создаем AudioContext в ответ на действие пользователя
     const context = new (window.AudioContext || window.webkitAudioContext)();
     setAudioContext(context);
+    console.log(context);
   };
 
   const createStuff = () => {
     const newStuff = createSeq(value.key);
     setSeq(newStuff);
+    console.log('createStuff');
+    console.log(newStuff);
   };
 
-  //   useEffect(() => {
-  //     console.log(value);
-  //   }, [value]);
+  useEffect(() => {
+    console.log(seq);
+  }, [seq]);
 
   return (
     <>

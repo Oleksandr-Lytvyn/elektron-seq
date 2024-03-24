@@ -1,8 +1,8 @@
 import './App.css';
-import { sendMiddleC } from './myScripts';
+// import { sendMiddleC } from './myScripts';
 import { MainPage } from './components/MainPage';
 
-sendMiddleC();
+// sendMiddleC();
 
 function App() {
   return (
