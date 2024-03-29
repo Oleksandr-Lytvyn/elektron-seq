@@ -32,7 +32,7 @@ export const createSeq = (gmm) => {
   for (let index = 0; index < 16; index++) {
     if (count >= 16) break;
 
-    const randomLength = probability(2) ? 16 : 8;
+    const randomLength = probability(5) ? 16 : 8;
 
     switch (randomLength) {
       case 16:

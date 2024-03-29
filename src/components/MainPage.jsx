@@ -5,11 +5,12 @@ import { MainForm } from './Form';
 import { Trig, TrigsBox } from './Trigs';
 import { createSeq } from '../utilites/seq';
 import { LengthSelector } from './LengthSelector';
+import { sendMidiNote } from '../utilites/sendMidiNote';
 
 export const MainPage = () => {
   const [audioContext, setAudioContext] = useState(null);
 
-  const { value, plusNote, resetNotes, setSeq, seq } = useContext(MyContext);
+  const { value, plusNote, resetNotes, setSeq } = useContext(MyContext);
 
   const items = Array.from({ length: 16 }, (v, i) => i);
 
@@ -31,13 +32,13 @@ export const MainPage = () => {
   const createStuff = () => {
     const newStuff = createSeq(value.key);
     setSeq(newStuff);
-    console.log('createStuff');
     console.log(newStuff);
   };
 
   useEffect(() => {
-    console.log(seq);
-  }, [seq]);
+    sendMidiNote(value.seq, value.sixteensNote);
+    console.log(value.sixteensNote);
+  }, [value.seq, value.sixteensNote]);
 
   return (
     <>

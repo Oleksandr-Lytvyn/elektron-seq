@@ -3,9 +3,9 @@ import { createContext, useState } from 'react';
 export const MyContext = createContext();
 
 export const MyProvider = ({ children }) => {
-  const [quarterNote, setQuarterNote] = useState(1);
-  const [eighthNote, setEighthNote] = useState(1);
-  const [sixteensNote, setSixteensNote] = useState(1);
+  const [quarterNote, setQuarterNote] = useState(0);
+  const [eighthNote, setEighthNote] = useState(0);
+  const [sixteensNote, setSixteensNote] = useState(0);
   const [tempo, setTempo] = useState(97);
   const [lengthNote, setLengthNote] = useState('16');
   const [key, setKey] = useState('tonic');
@@ -17,7 +17,7 @@ export const MyProvider = ({ children }) => {
     setSixteensNote(1);
   };
 
-  if (quarterNote > 4) {
+  if (sixteensNote === 17) {
     resetNotes();
   }
 
