@@ -6,6 +6,7 @@ import { Trig, TrigsBox } from './Trigs';
 import { createSeq } from '../utilites/seq';
 import { LengthSelector } from './LengthSelector';
 import { sendMidiNote } from '../utilites/sendMidiNote';
+import { Seq } from './Seq';
 
 export const MainPage = () => {
   const [audioContext, setAudioContext] = useState(null);
@@ -37,7 +38,7 @@ export const MainPage = () => {
 
   useEffect(() => {
     sendMidiNote(value.seq, value.sixteensNote);
-    console.log(value.sixteensNote);
+    // console.log(value.sixteensNote);
   }, [value.seq, value.sixteensNote]);
 
   return (
@@ -53,6 +54,7 @@ export const MainPage = () => {
           return <Trig key={index} position={index + 1} />;
         })}
       </TrigsBox>
+      <Seq />
     </>
   );
 };
