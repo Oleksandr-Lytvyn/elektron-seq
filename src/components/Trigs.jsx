@@ -2,9 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { MyContext } from '../contextProvider/context';
 
 export const Trig = ({ position }) => {
-  // console.log(position);
-
   const [color, setColor] = useState('red');
+  const [bgColor, setBgColor] = useState('red');
   const { value } = useContext(MyContext);
 
   useEffect(() => {
@@ -17,25 +16,29 @@ export const Trig = ({ position }) => {
         break;
       case '8':
         if (position % 2 === 1 && position === value.sixteensNote) setColor('red');
+        setBgColor('red');
         setTimeout(() => {
           setColor('white');
+          setBgColor('black');
         }, 100);
         break;
       case '16':
         if (position === value.sixteensNote) setColor('red');
+        setBgColor('red');
         setTimeout(() => {
           setColor('white');
+          setBgColor('black');
         }, 100);
         break;
       default:
-        // Выполнить действие по умолчанию
+        // действие по умолчанию
         break;
     }
   }, [position, value.lengthNote, value.sixteensNote]);
 
   return (
     <>
-      <div className="trig" style={{ color: color }}>
+      <div className="trig" style={{ color: color, backgroundColor: bgColor }}>
         {position}
       </div>
     </>
