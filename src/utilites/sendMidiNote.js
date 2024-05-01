@@ -28,12 +28,14 @@ export function sendMidiNote(seq, sixteens) {
     // console.log(index, count, element.note, element.length);
   });
 
-  const message = [0x90, note.note, 0x7f];
-  // console.log(sixteens, message);
+  console.log(note);
+
+  const onMessage = [0x90, note.note, 0x7f];
+  console.log(sixteens, onMessage);
 
   let portID = '';
-  if (message[1] !== undefined) {
-    console.log(sixteens, message);
+  if (onMessage[1] !== undefined) {
+    // console.log(sixteens, message);
   }
   navigator
     .requestMIDIAccess()
@@ -46,7 +48,7 @@ export function sendMidiNote(seq, sixteens) {
       }
       // const noteOnMessage = [0x90, 60, 0x7f]; // note on, middle C, full velocity
       const output = midiAccess.outputs.get(portID);
-      output.send(message);
+      output.send(onMessage);
     })
     .catch(function (error) {
       // console.log('MIDI доступ недоступен: ' + error);

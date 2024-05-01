@@ -5,7 +5,7 @@ import { midiListener } from './utilites/midiListener';
 
 // sendMiddleC();
 
-midiListener();
+// midiListener();
 
 function App() {
   return (
